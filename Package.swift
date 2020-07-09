@@ -10,6 +10,7 @@ let package = Package(
         .library(
             name: "Zombie_Dice_Board_Game",
             targets: ["Zombie_Dice_Board_Game"]),
+        
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
