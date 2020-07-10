@@ -6,6 +6,7 @@ import Foundation
 class Player {
     let name: String
     var score: Int = 0
+    var health: Int = 3
     init(name: String) {
         
         self.name = name

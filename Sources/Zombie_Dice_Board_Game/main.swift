@@ -2,8 +2,8 @@
 import Foundation
 print("test")
 
-let newDie: RedDie = RedDie()
-print(newDie.rollDice())
+//let newDie: RedDie = RedDie()
+//print(newDie.rollDie())
 
 var newGame: GameEngine = GameEngine()
 newGame.start()

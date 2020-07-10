@@ -9,7 +9,7 @@ class Die {
         self.sides = []
     }
     
-    func rollDice() -> String {
+    func rollDie() -> String {
         if let side = sides.randomElement() {
             return side
         }

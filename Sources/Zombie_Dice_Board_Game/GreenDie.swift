@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 class GreenDie: Die {
     
    override init() {

@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 class YellowDie: Die {
     
    override init() {
