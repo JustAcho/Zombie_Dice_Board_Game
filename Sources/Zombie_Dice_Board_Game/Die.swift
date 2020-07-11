@@ -3,10 +3,12 @@
 import Foundation
 
 class Die {
-   var sides: [String]
+    var sides: [String]
+    var color: String
     
     init(){
         self.sides = []
+        self.color = ""
     }
     
     func rollDie() -> String {
