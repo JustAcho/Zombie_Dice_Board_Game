@@ -18,7 +18,7 @@ struct GameEngine {
     func takeTurn(player: Player) {
         var cup: DicePool = DicePool()
         var endTurn: Bool = false
-        var hand: [Die] = cup.drawDice(number: 3)
+        var hand: [Die] = cup.drawDice(number: 3)!
         var currentScore: Int = 0
         player.health = 3
         
@@ -54,7 +54,7 @@ struct GameEngine {
             if(readLine()! == "no") {
                 endTurn = true
             }
-            hand.append(contentsOf: cup.drawDice(number: 3 - hand.count))
+            hand.append(contentsOf: cup.drawDice(number: 3 - hand.count)!)
         }
         player.score += currentScore
     }
