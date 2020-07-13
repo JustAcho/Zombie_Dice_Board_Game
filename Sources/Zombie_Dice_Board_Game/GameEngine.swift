@@ -5,12 +5,11 @@ struct GameEngine {
     
     init() {
         players = []
-        
     }
     
     mutating func addPlayers(num: Int) {
         for i in 1...num {
-            print("Please enter the name of player \(i)")
+            print("Please enter the name of player \(i):")
             let newPlayer: Player = Player(name: readLine()!)
             players.append(newPlayer)
         }
@@ -30,7 +29,7 @@ struct GameEngine {
                 let side: String = i.rollDie()
                 print("You rolled a \(i.color) die with \(side)")
                 
-                if(side == "🧠"){
+                if(side == "🧠") {
                     currentScore += 1
                     hand.remove(at: index)
                     index -= 1
@@ -42,13 +41,17 @@ struct GameEngine {
                 }
                 index += 1
             }
-            if(player.health < 1){
-                print("You have been killed!")
+            if(player.health < 1) {
+                print("\n")
+                print("💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥")
+                print("   \(player.name) has been killed!   ")
+                print("💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥")
                 currentScore = 0
                 break
             }
+            print("----------------------------------")
             print("Do you want to throw again? yes/no")
-                if(readLine()! == "no"){
+            if(readLine()! == "no") {
                 endTurn = true
             }
             hand.append(contentsOf: cup.drawDice(number: 3 - hand.count))
@@ -57,17 +60,22 @@ struct GameEngine {
     }
     
     func printScoreboard() {
-        for i in players{
+        print("\n")
+        print("----SCOREBOARD----")
+        for i in players {
             print("\(i.name) has eaten \(i.score) brains")
+            print("-------------------------------------")
         }
+        print("\n")
     }
     
     mutating func start() {
-        print("Hello and Welcome to Zombie Dice!")
-        print("Please enter the number of player (2-8)")
+        print("🧟‍♂️ Hello and Welcome to Zombie Dice! 🧠")
+        print("---------------------------------------")
+        print("Please enter the number of players (2-8)")
         
         var playerCount: Int = Int(readLine()!)!
-        while(playerCount < 2 || playerCount > 8){
+        while(playerCount < 2 || playerCount > 8) {
             print("Please enter a VALID number of players")
             playerCount = Int(readLine()!)!
         }
@@ -76,26 +84,21 @@ struct GameEngine {
         
         var gameWon: Bool = false
         
-        while(!gameWon){
-            printScoreboard()
+        while(!gameWon) {
             for i in players {
-                print("\(i.name) is playing... ")
+                printScoreboard()
+                print("---------------------")
+                print("\(i.name) is playing ")
+                print("---------------------")
                 
                 takeTurn(player: i)
                 
                 if(i.score >= 13){
-                    print("\(i.name) has won the game!")
+                    print("🥇 \(i.name) has won the game! 🥇")
                     gameWon = true
                     break
                 }
-                
             }
-            
         }
-        
     }
 }
-
-
-
-
