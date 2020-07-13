@@ -69,6 +69,12 @@ struct GameEngine {
         print("\n")
     }
     
+    func resetScores() {
+        for i in players {
+            i.score = 0;
+        }
+    }
+    
     mutating func start() {
         print("🧟‍♂️ Hello and Welcome to Zombie Dice! 🧠")
         print("---------------------------------------")
@@ -83,22 +89,39 @@ struct GameEngine {
         addPlayers(num: playerCount)
         
         var gameWon: Bool = false
+        var playAgain: Bool = true
         
-        while(!gameWon) {
-            for i in players {
-                printScoreboard()
-                print("---------------------")
-                print("\(i.name) is playing ")
-                print("---------------------")
-                
-                takeTurn(player: i)
-                
-                if(i.score >= 13){
-                    print("🥇 \(i.name) has won the game! 🥇")
-                    gameWon = true
-                    break
+        while(playAgain){
+            
+            resetScores()
+            gameWon = false
+            
+            while(!gameWon) {
+                for i in players {
+                    printScoreboard()
+                    print("---------------------")
+                    print("\(i.name) is playing ")
+                    print("---------------------")
+                    
+                    takeTurn(player: i)
+                    
+                    if(i.score >= 13){
+                        print("🥇 \(i.name) has won the game! 🥇")
+                        gameWon = true
+                        break
+                    }
                 }
             }
+            
+            print("---------------------------------")
+            print("Do you want to play again? yes/no")
+            print("---------------------------------")
+            if(readLine()! == "no") {
+                playAgain = false;
+            }
         }
+        print("----------------------")
+        print("Thank you for playing!")
+        print("----------------------")
     }
 }
