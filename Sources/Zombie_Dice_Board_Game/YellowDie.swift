@@ -1,3 +1,5 @@
+// Class for the Yellow Die (inherits class Die)
+
 import Foundation
 
 class YellowDie: Die {

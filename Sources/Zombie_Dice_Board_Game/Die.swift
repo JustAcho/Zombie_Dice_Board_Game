@@ -1,4 +1,4 @@
-//This is the parrent class for the different dice
+//This is the parrent class (Die) for the different dice
 
 import Foundation
 
@@ -11,6 +11,7 @@ class Die {
         self.color = ""
     }
     
+    // A function which imitates rolling a die -> it gives us a random side
     func rollDie() -> String {
         if let side = sides.randomElement() {
             return side

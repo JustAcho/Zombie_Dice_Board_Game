@@ -1,5 +1,5 @@
 //This is the Player class
-//Every Player should have a name and will accumulate a score
+//Every Player should have a name, health points and will accumulate a score
 
 import Foundation
 
@@ -10,6 +10,5 @@ class Player {
     init(name: String) {
         
         self.name = name
-        
     }
 }

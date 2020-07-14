@@ -1,3 +1,5 @@
+// Class for the Red Die (inherits class Die)
+
 import Foundation
 
 class RedDie: Die {
